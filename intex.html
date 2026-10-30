@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Ai Tools Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--1. Profile Section-->
+    <header class="profile-section">
+        <div class="avatar-container">
+            <img src="saad.png" alt="Saad shah">
+        </div>
+        <h2>Saad shah</h2>
+        <h3>Welcome to My Ai Hub</h3>
+        <p>Smart Tools for Study, Code, & Lifestyle</p>
+    </header>
+
+    <!--2. Main Content Container-->
+    <main class="container">
+        <!-- AI Birth Chart & Personality Analyzer Tool -->
+        <section class="tool-card">
+            <h3>AI Birth Chart & Personality Analyzer</h3>
+            <input type="date" id="birth-date" />
+            <input type="text" id="birth-city" placeholder="Apna City/Shehar likhein" />
+            <button id="birth-btn">Generate Birth Chart</button>
+            <div id="birth-result" style="margin-top: 10px; font-size: 14px; color: #38bdf8;"></div>
+        </section>
+        <!--AI Text Summarizer Tool-->
+        <section class="tool-card">
+            <h3>AI Text Summarizer</h3>
+            <textarea id="summarizer-input" placeholder="Yahan apna lamba text paste karein..."></textarea>
+            <button id="summarizer-btn">Summarizer Text</button>
+        </section>
+
+        <!--Code Helper Tool-->
+        <section class="tool-card">
+            <h3>Code Helper</h3>
+            <input type="text" id="code-query" placeholder="Apna coding yahan likhe"/>
+            <button id="code-btn">Get Helper</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
