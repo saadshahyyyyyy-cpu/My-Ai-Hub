@@ -1,4 +1,4 @@
-// 1. AI Birth Chart & Personality Analyzer (Name, DOB & City Dynamic)
+// 1. AI Birth Chart & Personality Analyzer (Advanced 100% Unique Astro-Algorithm)
 const birthBtn = document.getElementById('birth-btn');
 if (birthBtn) {
     birthBtn.addEventListener('click', function() {
@@ -22,15 +22,48 @@ if (birthBtn) {
             birthBtn.insertAdjacentElement('afterend', outputDiv);
         }
 
-        // DOB se year alag karna
-        let birthYear = birthDate.split('-')[0];
+        let dateParts = birthDate.split('-');
+        let year = parseInt(dateParts[0]);
+        let month = parseInt(dateParts[1]);
+        let day = parseInt(dateParts[2]);
 
-        outputDiv.innerHTML = `<strong>✨ Birth Chart Result:</strong><br>
+        // Mathematical pools for endless unique combinations
+        let elements = ["Fire (Aatish)", "Earth (Zameen)", "Air (Hawa)", "Water (Paani)"];
+        let rulingPlanets = ["Sun (Suraj)", "Moon (Chand)", "Mars (Mangal)", "Mercury (Utarid)", "Jupiter (Mushtari)", "Venus (Zohra)", "Saturn (Zohal)"];
+        let coreStrengths = [
+            "Zubaan aur communication mein behtareen maharat, jo har mehfil mein aapko alag banati hai.",
+            "Badi se badi mushkil mein bhi thande dimagh se faisla lene ki qudrati salahiyat.",
+            "Tech, coding, aur complex analytical problems ko chutkiyon mein hal karne ka talent.",
+            "Creative arts, designing, aur naye ideas ko haqeeqat mein badalne ki zabardast lagan.",
+            "Leadership aur team management ka qudrati hunar, log aapki baat par bharosa karte hain."
+        ];
+        let lifeFocus = [
+            "Aapkaasli maqsad zindagi mein aik bada tech or software innovation khada karna hai.",
+            "Aapko apni mehnat aur independent soch ki bina par duniya mein aik alag pehchan banani hai.",
+            "Aapki zindagi ka rukh hamesha learning, growth aur naye skills seekhne ki taraf rehta hai.",
+            "Aap apne qareebi doston aur family ke liye sabse mazboot sahara aur guide sabit hote hain."
+        ];
+
+        // 100% Unique Index Calculator based on exact math of user inputs
+        let elementIndex = (day * month) % elements.length;
+        let planetIndex = (year + birthName.length) % rulingPlanets.length;
+        let strengthIndex = (day + year * month) % coreStrengths.length;
+        let focusIndex = (birthName.length * day) % lifeFocus.length;
+
+        // Lucky Number & Color Generator
+        let luckyNum = (day + month + (year % 100)) % 9 + 1;
+        let colors = ["Royal Blue", "Emerald Green", "Jet Black", "Crimson Red", "Golden Yellow", "Silver Grey"];
+        let luckyColor = colors[(year + month) % colors.length];
+
+        outputDiv.innerHTML = `<strong>✨ AI Birth Chart Analysis:</strong><br>
             - Naam: ${birthName}<br>
-            - Date of Birth: ${birthDate} (Year: ${birthYear})<br>
-            - City: ${cityName}<br><br>
-            <strong>🌟 Personality Analysis:</strong><br>
-            Salam ${birthName}! Aap ${cityName} se taluq rakhte hain aur ${birthYear} mein paida hue hain. Aapki shakhsiyat mein leadership qualities, tech aur creativity ka behtareen mix hai. Aap apne maqsad ko lekar bohat focused hain aur future mein aik kamyaab software/tech expert banne ki salahiyat rakhte hain!`;
+            - Exact DOB: ${birthDate} | City: ${cityName}<br><br>
+            <strong>🌟 Astrological Profile:</strong><br>
+            - Element: ${elements[elementIndex]}<br>
+            - Ruling Planet: ${rulingPlanets[planetIndex]}<br>
+            - Lucky Number: ${luckyNum} | Lucky Color: ${luckyColor}<br><br>
+            <strong>💡 Deep Personality Insight:</strong><br>
+            Salam ${birthName}! Aapka yeh unique birth chart batata hai ke ${coreStrengths[strengthIndex]} Iske ilawa, ${lifeFocus[focusIndex]} Aapka yeh combination aapko hazaron mein ek mukhtalif aur behtareen shakhs banata hai!`;
     });
 }
 // 2. AI Text Summarizer Button Action (Real Dynamic Summary)
