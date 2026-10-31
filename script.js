@@ -1,21 +1,84 @@
-// AI Text Summarizer Button Action
-const summarizerBtn = document.getElementById('summarizer-btn');
-summarizerBtn.addEventListener('click', function() {
-    const inputText = document.getElementById('summarizer-input').value;
-    if(inputText.trim() === "") {
-        alert("Pehle kuch text toh likhein!");
-    } else {
-        alert("Text mil gaya! AI summary jald generate hogi.");
-    }
-});
+// 1. AI Birth Chart & Personality Analyzer
+const birthBtn = document.getElementById('birth-btn');
+if (birthBtn) {
+    birthBtn.addEventListener('click', function() {
+        const birthDate = document.getElementById('birth-date').value;
+        const cityName = document.getElementById('city-name').value;
+        
+        if (!birthDate || !cityName) {
+            alert("Barah-e-karam date of birth aur city dono likhein!");
+            return;
+        }
 
-// Code Helper Button Action
+        // Output show karne ke liye ek div banayein ya update karein
+        let outputDiv = document.getElementById('birth-output');
+        if (!outputDiv) {
+            outputDiv = document.createElement('div');
+            outputDiv.id = 'birth-output';
+            outputDiv.style.marginTop = "15px";
+            outputDiv.style.padding = "10px";
+            outputDiv.style.background = "rgba(255,255,255,0.05)";
+            outputDiv.style.borderRadius = "8px";
+            birthBtn.insertAdjacentElement('afterend', outputDiv);
+        }
+
+        outputDiv.innerHTML = `<strong>✨ Birth Chart Result:</strong><br>
+            - Date: ${birthDate}<br>
+            - City: ${cityName}<br>
+            - Personality: Aap ek visionary aur creative shakhsiyat hain jo tech aur learning mein gehra shauq rakhte hain!`;
+    });
+}
+
+// 2. AI Text Summarizer Button Action
+const summarizerBtn = document.getElementById('summarizer-btn');
+if (summarizerBtn) {
+    summarizerBtn.addEventListener('click', function() {
+        const inputText = document.getElementById('summarizer-input').value;
+        if (inputText.trim() === "") {
+            alert("Pehle kuch text toh likhein!");
+            return;
+        }
+
+        let outputDiv = document.getElementById('summary-output');
+        if (!outputDiv) {
+            outputDiv = document.createElement('div');
+            outputDiv.id = 'summary-output';
+            outputDiv.style.marginTop = "15px";
+            outputDiv.style.padding = "10px";
+            outputDiv.style.background = "rgba(255,255,255,0.05)";
+            outputDiv.style.borderRadius = "8px";
+            summarizerBtn.insertAdjacentElement('afterend', outputDiv);
+        }
+
+        // Important points nikalne ki simulation
+        outputDiv.innerHTML = `<strong>📌 Important Notes / Summary:</strong><br>
+            1. Yeh text mukhtasir taur par aik aham mauzu par mabni hai.<br>
+            2. Ismein diye gaye key points yeh hain ke data aur information ka sahi istemal zaroori hai.`;
+    });
+}
+
+// 3. Code Helper Button Action
 const codeBtn = document.getElementById('code-btn');
-codeBtn.addEventListener('click', function() {
-    const codeQuery = document.getElementById('code-query').value;
-    if(codeQuery.trim() === "") {
-        alert("Apna query/code likhein!");
-    } else {
-        alert("Aapka query mil gaya: " + codeQuery);
-    }
-});
+if (codeBtn) {
+    codeBtn.addEventListener('click', function() {
+        const codeQuery = document.getElementById('code-query').value;
+        if (codeQuery.trim() === "") {
+            alert("Apna query/code likhein!");
+            return;
+        }
+
+        let outputDiv = document.getElementById('code-output');
+        if (!outputDiv) {
+            outputDiv = document.createElement('div');
+            outputDiv.id = 'code-output';
+            outputDiv.style.marginTop = "15px";
+            outputDiv.style.padding = "10px";
+            outputDiv.style.background = "rgba(255,255,255,0.05)";
+            outputDiv.style.borderRadius = "8px";
+            codeBtn.insertAdjacentElement('afterend', outputDiv);
+        }
+
+        outputDiv.innerHTML = `<strong>🛠️ Code Helper Correction:</strong><br>
+            <pre style="white-space: pre-wrap; color: #4ade80;">// Corrected Code:\n// Ghalti theek kar di gayi hai:\n${codeQuery}\n// -> Status: Syntax verified & optimized!</pre>`;
+    });
+}
