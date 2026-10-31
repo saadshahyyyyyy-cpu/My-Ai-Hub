@@ -28,13 +28,12 @@ if (birthBtn) {
             - Personality: Aap ek visionary aur creative shakhsiyat hain jo tech aur learning mein gehra shauq rakhte hain!`;
     });
 }
-
-// 2. AI Text Summarizer Button Action
+// 2. AI Text Summarizer Button Action (Real Dynamic Summary)
 const summarizerBtn = document.getElementById('summarizer-btn');
 if (summarizerBtn) {
     summarizerBtn.addEventListener('click', function() {
-        const inputText = document.getElementById('summarizer-input').value;
-        if (inputText.trim() === "") {
+        const inputText = document.getElementById('summarizer-input').value.trim();
+        if (inputText === "") {
             alert("Pehle kuch text toh likhein!");
             return;
         }
@@ -50,12 +49,20 @@ if (summarizerBtn) {
             summarizerBtn.insertAdjacentElement('afterend', outputDiv);
         }
 
+        let sentences = inputText.split('.').filter(s => s.trim().length > 5);
+        let summaryListHTML = '';
+        
+        let pointCount = Math.min(sentences.length, 4);
+        for (let i = 0; i < pointCount; i++) {
+            summaryListHTML += `<li>${sentences[i].trim()}.</li>`;
+        }
+
         outputDiv.innerHTML = `<strong>📌 Important Notes / Summary:</strong><br>
-            1. Yeh text mukhtasir taur par aik aham mauzu par mabni hai.<br>
-            2. Ismein diye gaye key points yeh hain ke data aur information ka sahi istemal zaroori hai.`;
+            <ul style="margin-left: 20px; margin-top: 5px; color: #e2e8f0;">
+                ${summaryListHTML}
+            </ul>`;
     });
 }
-
 // 3. Code Helper Button Action
 const codeBtn = document.getElementById('code-btn');
 if (codeBtn) {
